@@ -75,10 +75,16 @@
   .bot-fab__t{display:none}
   .bot-tip{right:14px;bottom:calc(80px + env(safe-area-inset-bottom));width:min(260px,calc(100vw - 28px))}
   .bot{inset:0;width:auto;height:100%;height:100dvh;border:0;transform:translateY(24px)}
-  .bot__opts{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
   .bot__in{padding-bottom:env(safe-area-inset-bottom)}
   .opt{padding:12px 14px;font-size:15px}
-  .bot__opts{flex-direction:column;align-items:stretch}
+  .bot__opts{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
+  .bot__opts::-webkit-scrollbar{display:none}
+  .opt{flex:none;white-space:nowrap}
   .msg{max-width:90%}
 }
 @media (prefers-reduced-motion:reduce){.bot,.msg,.opt,.bot-tip{transition:none;animation:none}.msg{opacity:1;transform:none}.ok svg{stroke-dashoffset:0}}
+
+.msg__a{display:block;margin-top:8px;color:var(--red);font-weight:500;border-bottom:1px solid currentColor;width:max-content;max-width:100%}
+.msg a:not(.msg__a):not(.msg__tel){color:var(--red);border-bottom:1px solid currentColor}
+.msg__s{margin-top:6px}
+.bot__send:disabled{opacity:.5}

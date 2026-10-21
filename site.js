@@ -107,9 +107,8 @@ if(RM){ setExploded(); gsap.set('#steer',{opacity:1}); $$('[data-count]').forEac
 
 // hero intro
 gsap.from('.hero__title .line>span',{yPercent:110,duration:1.2,ease:'power4.out',stagger:.09,delay:.15});
-gsap.from(['.hero__aside','.spec'],{opacity:0,y:24,duration:1,ease:'power3.out',delay:.6,stagger:.12});
+gsap.from('.hero__aside',{opacity:0,y:24,duration:1,ease:'power3.out',delay:.6,stagger:.12});
 gsap.fromTo('.hero__video',{scale:1.12},{scale:1,duration:2.2,ease:'power2.out'});
-gsap.from('.hero__kicker',{opacity:0,x:-20,duration:.9,ease:'power3.out',delay:.1});
 const hm=gsap.matchMedia();
 hm.add('(min-width:901px)',()=>{
   // pinned hero: frame closes in, title lines drift apart, overlay darkens
@@ -117,7 +116,7 @@ hm.add('(min-width:901px)',()=>{
   tl.fromTo('.hero__media',{clipPath:'inset(0% 0% 0% 0%)'},{clipPath:'inset(9% 4% 22% 46%)'},0)
     .fromTo('.hero__video',{scale:1},{scale:1.18},0)
     .to('.hero__title',{y:-24},0)
-    .to('.hero__kicker,.hero__cue',{opacity:0,duration:.3},0)
+    
     .to('.hero__aside',{y:-30},0);
 });
 hm.add('(max-width:900px)',()=>{
@@ -145,7 +144,7 @@ $$('.h2[data-reveal]').forEach(h=>{ if(h.children.length) return; const words=h.
   gsap.from(h.querySelectorAll('.w>span'),{yPercent:105,duration:1,ease:'power4.out',stagger:.045,scrollTrigger:{trigger:h,start:'top 86%',once:true}}); });
 // reveals
 $$('[data-reveal]').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
-gsap.utils.toArray('.sym__row,.brands__list li,.counts>div,.ct__info>div').forEach(el=>gsap.from(el,{opacity:0,y:18,duration:.8,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
+gsap.utils.toArray('.spec>div,.sym__row,.brands__list li,.counts>div,.ct__info>div').forEach(el=>gsap.from(el,{opacity:0,y:18,duration:.8,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
 // image clip reveals
 $$('.sp__imgwrap,.store__img').forEach(el=>{el.classList.add('clipr'); gsap.to(el,{clipPath:'inset(0% 0% 0% 0%)',ease:'none',scrollTrigger:{trigger:el,start:'top 95%',end:'top 35%',scrub:.6}});});
 // parallax
