@@ -8,7 +8,8 @@
 <meta name="description" content="Демо-концепт нового вигляду avtodoctor.com.ua. Не індексується.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="bot.css?v=3">
 <link rel="icon" href="img/favicon.svg">
 </head>
 <body>
@@ -36,6 +37,7 @@
     </video>
   </div>
   <div class="hero__inner">
+    <p class="hero__kicker mono"><span class="hero__dot"></span>Одеса · Житомирська, 46 · власний цех</p>
     <h1 class="hero__title">
       <span class="line"><span>Ремонт кермових</span></span>
       <span class="line"><span>рейок за один</span></span>
@@ -45,6 +47,7 @@
       <p class="hero__lead">Власний цех з ремонту кермового керування в Одесі. Розбираємо агрегат до деталей, відновлюємо і перевіряємо кожну рейку на стенді.</p>
       <div class="hero__actions">
         <a class="btn btn--red" href="#price">Дізнатися ціну на своє авто</a>
+        <button class="btn btn--ghost" type="button" data-bot-open>Описати симптом боту</button>
         <a class="link-tel mono" href="tel:+380676501800">+38 067 650-18-00</a>
       </div>
     </div>
@@ -56,6 +59,41 @@
     <div><dt>Адреса</dt><dd>Одеса, Житомирська, 46</dd></div>
     <div><dt>Графік</dt><dd>Пн–Пт 8–17 · Сб 8–13</dd></div>
   </dl>
+  <div class="hero__cue mono" aria-hidden="true"><i></i>Гортайте</div>
+</section>
+
+<!-- STEER BAND: scroll = steering input -->
+<section class="band" aria-label="Кермо і рейка: прокрутка повертає кермо">
+  <div class="band__marq" aria-hidden="true">
+    <div class="band__row" data-dir="-1">Рейки · Насоси ГПК · Кермові колонки · Електропідсилювачі · Діагностика · Рейки · Насоси ГПК · Кермові колонки · Електропідсилювачі · Діагностика ·</div>
+    <div class="band__row band__row--o" data-dir="1">Розбираємо · Відновлюємо · Перевіряємо на стенді · Гарантія 1 рік · Розбираємо · Відновлюємо · Перевіряємо на стенді · Гарантія 1 рік ·</div>
+  </div>
+  <div class="band__stage">
+    <svg class="band__svg" id="steer" viewBox="60 0 880 360" aria-hidden="true">
+      <g id="sw" class="sw">
+        <circle class="bs" cx="500" cy="92" r="70"/><circle class="bs thin" cx="500" cy="92" r="58"/>
+        <circle class="bs bf" cx="500" cy="92" r="16"/>
+        <path class="bs" d="M484 92H432 M516 92H568 M500 108V160"/>
+        <circle class="bmark" cx="500" cy="26" r="4"/>
+      </g>
+      <path class="bs thin dash" d="M500 162V232"/>
+      <rect class="bs bf" x="486" y="226" width="28" height="30"/>
+      <g id="bShaft"><rect class="bs" x="260" y="241" width="480" height="14" rx="2"/>
+        <path class="bs thin" d="M470 241v5 M478 241v5 M486 241v5 M494 241v5 M502 241v5 M510 241v5 M518 241v5 M526 241v5"/></g>
+      <path class="bs bh" d="M330 234h340v28H330z"/>
+      <g id="bBootL" class="boot"><path class="bs bf" d="M330 238 L322 230 L314 238 L306 228 L298 238 L290 230 L282 240 L282 256 L290 266 L298 258 L306 268 L314 258 L322 266 L330 258Z"/></g>
+      <g id="bBootR" class="boot"><path class="bs bf" d="M670 238 L678 230 L686 238 L694 228 L702 238 L710 230 L718 240 L718 256 L710 266 L702 258 L694 268 L686 258 L678 266 L670 258Z"/></g>
+      <g id="bTieL"><rect class="bs bf" x="170" y="243" width="104" height="10" rx="2"/><circle class="bs bf" cx="156" cy="248" r="14"/></g>
+      <g id="bTieR"><rect class="bs bf" x="726" y="243" width="104" height="10" rx="2"/><circle class="bs bf" cx="844" cy="248" r="14"/></g>
+      <g id="bWheelL"><path class="bs thin" d="M156 262L150 290"/><rect class="bs whl" x="122" y="290" width="44" height="64" rx="6"/></g>
+      <g id="bWheelR"><path class="bs thin" d="M844 262L850 290"/><rect class="bs whl" x="834" y="290" width="44" height="64" rx="6"/></g>
+      <g class="btag"><path d="M568 70h80"/><text x="654" y="74">Кермо</text></g>
+      <g class="btag"><path d="M514 241h0M514 226l30-30h70"/><text x="620" y="200">Розподільник</text></g>
+      <g class="btag"><path d="M400 262v40"/><text x="400" y="320" text-anchor="middle">Шток</text></g>
+      <g class="btag"><path d="M220 243v-40"/><text x="220" y="192" text-anchor="middle">Тяга</text></g>
+    </svg>
+    <div class="band__read mono"><span>Кут керма</span><b id="steerDeg">0°</b><span class="band__hint">прокрутка = поворот керма</span></div>
+  </div>
 </section>
 
 <!-- 01 PRICE -->
@@ -83,13 +121,14 @@
   <div class="sec__no mono">02 / Симптом → причина → ціна</div>
   <h2 class="h2 h2--wide" data-reveal>Що відчуваєте за кермом — і що це зазвичай означає.</h2>
   <ol class="sym">
-    <li class="sym__row" data-img="img/onstand.webp"><span class="sym__i mono">2.1</span><span class="sym__s">Стук у кермі на нерівностях, биття керма</span><span class="sym__c">Знос опорних втулок і зубчастої пари штока</span><span class="sym__p mono">ремонт рейки<br><b>від 1 500 грн</b></span></li>
-    <li class="sym__row" data-img="img/leak.webp"><span class="sym__i mono">2.2</span><span class="sym__s">Туге кермо, важко повертати колеса</span><span class="sym__c">Знос розподільника рейки або несправний насос ГПК</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
-    <li class="sym__row" data-img="img/s5.webp"><span class="sym__i mono">2.3</span><span class="sym__s">Підтікання масла з гідросистеми</span><span class="sym__c">Зношені сальники, розірваний пильовик</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
-    <li class="sym__row" data-img="img/pump.webp"><span class="sym__i mono">2.4</span><span class="sym__s">Гуде насос підсилювача керма</span><span class="sym__c">Знос ротора, статора або пластини насоса</span><span class="sym__p mono">насос ГПК<br><b>від 1 500 грн</b></span></li>
-    <li class="sym__row" data-img="img/diag.webp"><span class="sym__i mono">2.5</span><span class="sym__s">Помилка підсилювача, кермо «клинить»</span><span class="sym__c">Датчик обертового моменту або блок керування ЕПК</span><span class="sym__p mono">комп’ютерна діагностика<br><b>250 грн</b></span></li>
-    <li class="sym__row" data-img="img/align.webp"><span class="sym__i mono">2.6</span><span class="sym__s">Машину веде в бік під час руху</span><span class="sym__c">Порушені кути коліс, люфт у кермових тягах</span><span class="sym__p mono">розвал-сходження<br><b>ціну уточнюйте</b></span></li>
+    <li class="sym__row" data-short="Стук і биття керма" data-img="img/onstand.webp"><span class="sym__i mono">2.1</span><span class="sym__s">Стук у кермі на нерівностях, биття керма</span><span class="sym__c">Знос опорних втулок і зубчастої пари штока</span><span class="sym__p mono">ремонт рейки<br><b>від 1 500 грн</b></span></li>
+    <li class="sym__row" data-short="Туге кермо" data-img="img/leak.webp"><span class="sym__i mono">2.2</span><span class="sym__s">Туге кермо, важко повертати колеса</span><span class="sym__c">Знос розподільника рейки або несправний насос ГПК</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
+    <li class="sym__row" data-short="Тече масло ГПК" data-img="img/s5.webp"><span class="sym__i mono">2.3</span><span class="sym__s">Підтікання масла з гідросистеми</span><span class="sym__c">Зношені сальники, розірваний пильовик</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
+    <li class="sym__row" data-short="Гуде насос" data-img="img/pump.webp"><span class="sym__i mono">2.4</span><span class="sym__s">Гуде насос підсилювача керма</span><span class="sym__c">Знос ротора, статора або пластини насоса</span><span class="sym__p mono">насос ГПК<br><b>від 1 500 грн</b></span></li>
+    <li class="sym__row" data-short="Кермо «клинить»" data-img="img/diag.webp"><span class="sym__i mono">2.5</span><span class="sym__s">Помилка підсилювача, кермо «клинить»</span><span class="sym__c">Датчик обертового моменту або блок керування ЕПК</span><span class="sym__p mono">комп’ютерна діагностика<br><b>250 грн</b></span></li>
+    <li class="sym__row" data-short="Веде в бік" data-img="img/align.webp"><span class="sym__i mono">2.6</span><span class="sym__s">Машину веде в бік під час руху</span><span class="sym__c">Порушені кути коліс, люфт у кермових тягах</span><span class="sym__p mono">розвал-сходження<br><b>ціну уточнюйте</b></span></li>
   </ol>
+  <div class="sym__more"><span>Не знайшли свій симптом?</span><button class="arrow-link" type="button" data-bot-open>Опишіть його боту — підкаже, що це може бути</button></div>
   <div class="sym__float" id="symFloat" aria-hidden="true"><img alt="" src="img/onstand.webp"></div>
 </section>
 
@@ -330,6 +369,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="site.js?v=2"></script>
+<script src="site.js?v=3"></script>
+<script src="bot.js?v=3"></script>
 </body>
 </html>
