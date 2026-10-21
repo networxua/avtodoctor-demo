@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Автодоктор — ремонт кермових рейок в Одесі · демо нового вигляду</title>
+<meta name="description" content="Демо-концепт нового вигляду avtodoctor.com.ua. Не індексується.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <a class="hdr__logo" href="#top" aria-label="Автодоктор"><img src="img/logo.svg" alt="Автодоктор" width="160" height="19"></a>
+  <nav class="hdr__nav">
+    <a href="#price">Ціни</a><a href="#symptoms">Симптоми</a><a href="#anatomy">Як ремонтуємо</a><a href="#works">Роботи</a><a href="https://avtodoctor.com.ua/ua/shop/">Магазин</a><a href="#contact">Контакти</a>
+  </nav>
+  <a class="hdr__tel mono" href="tel:+380676501800">067 650-18-00</a>
+  <a class="hdr__cta" href="#contact">Записатися</a>
+  <button class="hdr__burger" aria-label="Меню" id="burger"><span></span><span></span></button>
+</header>
+<div class="mnav" id="mnav">
+  <a href="#price">Ціни</a><a href="#symptoms">Симптоми</a><a href="#anatomy">Як ремонтуємо</a><a href="#works">Роботи</a><a href="#brands">Марки</a><a href="https://avtodoctor.com.ua/ua/shop/">Магазин</a><a href="#contact">Контакти</a>
+  <a class="mono" href="tel:+380676501800">+38 067 650-18-00</a>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__media">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="img/poster.webp">
+      <source src="video/workshop-m.mp4" type="video/mp4" media="(max-width: 800px)">
+      <source src="video/workshop.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero__inner">
+    <h1 class="hero__title">
+      <span class="line"><span>Ремонт кермових</span></span>
+      <span class="line"><span>рейок за один</span></span>
+      <span class="line"><span>робочий день<em>.</em></span></span>
+    </h1>
+    <div class="hero__aside">
+      <p class="hero__lead">Власний цех з ремонту кермового керування в Одесі. Розбираємо агрегат до деталей, відновлюємо і перевіряємо кожну рейку на стенді.</p>
+      <div class="hero__actions">
+        <a class="btn btn--red" href="#price">Дізнатися ціну на своє авто</a>
+        <a class="link-tel mono" href="tel:+380676501800">+38 067 650-18-00</a>
+      </div>
+    </div>
+  </div>
+  <dl class="spec">
+    <div><dt>Ремонт рейки</dt><dd>від 1 500 грн<sup>*</sup></dd></div>
+    <div><dt>Гарантія</dt><dd>1 рік або 30 000 км</dd></div>
+    <div><dt>Термін</dt><dd>1 робочий день</dd></div>
+    <div><dt>Адреса</dt><dd>Одеса, Житомирська, 46</dd></div>
+    <div><dt>Графік</dt><dd>Пн–Пт 8–17 · Сб 8–13</dd></div>
+  </dl>
+</section>
+
+<!-- 01 PRICE -->
+<section class="sec sec--paper price" id="price">
+  <div class="sec__no mono">01 / Ціна на вашу модель</div>
+  <div class="price__grid">
+    <div><h2 class="h2" data-reveal>Ціна ремонту рейки на вашу модель — ще до дзвінка.</h2><p class="price__meta mono" id="priceMeta"></p></div>
+    <div class="picker" data-reveal>
+      <label class="field"><span class="field__lbl mono">Марка</span>
+        <select id="selBrand" aria-label="Марка авто"></select></label>
+      <label class="field"><span class="field__lbl mono">Модель</span>
+        <select id="selModel" aria-label="Модель авто" disabled><option>Спершу оберіть марку</option></select></label>
+      <div class="picker__out">
+        <div class="picker__price"><span class="mono picker__from">від</span> <span id="outPrice">1 500</span> <span class="picker__cur">грн</span></div>
+        <p class="picker__note" id="outNote">Найнижча ціна за ремонт знятої рейки у прайсі. Оберіть авто, щоб побачити свою.</p>
+        <a class="arrow-link" id="outLink" href="https://avtodoctor.com.ua/ua/steering-racks-repair/">Прайс по всіх моделях</a>
+      </div>
+    </div>
+  </div>
+  <p class="foot-note mono">* Ціни з прайсу avtodoctor.com.ua. Зняття і встановлення рейки — від 1 400 грн. Точну вартість майстер називає після діагностики.</p>
+</section>
+
+<!-- 02 SYMPTOMS -->
+<section class="sec sec--paper2 symptoms" id="symptoms">
+  <div class="sec__no mono">02 / Симптом → причина → ціна</div>
+  <h2 class="h2 h2--wide" data-reveal>Що відчуваєте за кермом — і що це зазвичай означає.</h2>
+  <ol class="sym">
+    <li class="sym__row" data-img="img/onstand.webp"><span class="sym__i mono">2.1</span><span class="sym__s">Стук у кермі на нерівностях, биття керма</span><span class="sym__c">Знос опорних втулок і зубчастої пари штока</span><span class="sym__p mono">ремонт рейки<br><b>від 1 500 грн</b></span></li>
+    <li class="sym__row" data-img="img/leak.webp"><span class="sym__i mono">2.2</span><span class="sym__s">Туге кермо, важко повертати колеса</span><span class="sym__c">Знос розподільника рейки або несправний насос ГПК</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
+    <li class="sym__row" data-img="img/s5.webp"><span class="sym__i mono">2.3</span><span class="sym__s">Підтікання масла з гідросистеми</span><span class="sym__c">Зношені сальники, розірваний пильовик</span><span class="sym__p mono">гідравлічна рейка<br><b>від 3 400 грн</b></span></li>
+    <li class="sym__row" data-img="img/pump.webp"><span class="sym__i mono">2.4</span><span class="sym__s">Гуде насос підсилювача керма</span><span class="sym__c">Знос ротора, статора або пластини насоса</span><span class="sym__p mono">насос ГПК<br><b>від 1 500 грн</b></span></li>
+    <li class="sym__row" data-img="img/diag.webp"><span class="sym__i mono">2.5</span><span class="sym__s">Помилка підсилювача, кермо «клинить»</span><span class="sym__c">Датчик обертового моменту або блок керування ЕПК</span><span class="sym__p mono">комп’ютерна діагностика<br><b>250 грн</b></span></li>
+    <li class="sym__row" data-img="img/align.webp"><span class="sym__i mono">2.6</span><span class="sym__s">Машину веде в бік під час руху</span><span class="sym__c">Порушені кути коліс, люфт у кермових тягах</span><span class="sym__p mono">розвал-сходження<br><b>ціну уточнюйте</b></span></li>
+  </ol>
+  <div class="sym__float" id="symFloat" aria-hidden="true"><img alt="" src="img/onstand.webp"></div>
+</section>
+
+<!-- 03 ANATOMY (WOW) -->
+<section class="anatomy" id="anatomy">
+  <div class="anatomy__pin">
+    <div class="anatomy__head">
+      <div class="sec__no mono">03 / Анатомія рейки</div>
+      <h2 class="h2 anatomy__title">Що всередині — і що ми з цим робимо.</h2>
+    </div>
+    <div class="anatomy__draw">
+      <svg id="rack" viewBox="0 10 1000 390" role="img" aria-label="Схема кермової рейки в розібраному вигляді">
+        <defs>
+          <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="hatch"/></pattern>
+          <clipPath id="scan"><rect id="scanRect" x="-20" y="-40" width="1040" height="520"/></clipPath>
+        </defs>
+        <line class="axis" x1="0" y1="220" x2="1000" y2="220"/>
+        <g clip-path="url(#scan)">
+        <g class="part" id="p-shaft" data-part="shaft">
+          <rect class="st" x="255" y="212" width="510" height="16" rx="2"/>
+          <path class="st thin" d="M380 212v6 M388 212v6 M396 212v6 M404 212v6 M412 212v6 M420 212v6 M428 212v6 M436 212v6 M444 212v6 M452 212v6 M460 212v6 M468 212v6"/>
+        </g>
+        <g class="part" id="p-housing" data-part="housing">
+          <path class="st fillh" d="M320 200h380v40H320z"/>
+          <path class="st thin" d="M332 200v40 M688 200v40"/>
+        </g>
+        <g class="part" id="p-mounts" data-part="mounts">
+          <path class="st fillp" d="M495 190h28v60h-28z M645 190h28v60h-28z"/>
+          <circle class="st thin" cx="509" cy="182" r="6"/><circle class="st thin" cx="659" cy="182" r="6"/>
+        </g>
+        <g class="part" id="p-valve" data-part="valve">
+          <path class="st fillh" d="M352 168h86v80h-86z"/>
+          <path class="st fillp" d="M380 168v-62h30v62"/>
+          <path class="st thin" d="M384 114h22 M384 122h22 M384 130h22 M384 138h22"/>
+          <circle class="st thin" cx="426" cy="182" r="5"/><circle class="st thin" cx="426" cy="200" r="5"/>
+          <path class="st thin" d="M431 182c60 0 90-6 120-6h90 M431 200c50 0 70-6 110-6h100"/>
+        </g>
+        <g class="part" id="p-bush" data-part="bush">
+          <rect class="st fillp" x="324" y="208" width="14" height="24"/>
+          <rect class="st fillp" x="682" y="208" width="14" height="24"/>
+        </g>
+        <g class="part" id="p-seals" data-part="seals">
+          <ellipse class="st fillp" cx="314" cy="220" rx="5" ry="16"/><ellipse class="st fillp" cx="706" cy="220" rx="5" ry="16"/>
+        </g>
+        <g class="part" id="p-bootL" data-part="boots">
+          <path class="st fillp" d="M320 206 L312 196 L304 206 L296 194 L288 206 L280 196 L272 208 L264 200 L256 210 L256 230 L264 240 L272 232 L280 244 L288 234 L296 246 L304 234 L312 244 L320 234Z"/>
+        </g>
+        <g class="part" id="p-bootR" data-part="boots">
+          <path class="st fillp" d="M700 206 L708 196 L716 206 L724 194 L732 206 L740 196 L748 208 L756 200 L764 210 L764 230 L756 240 L748 232 L740 244 L732 234 L724 246 L716 234 L708 244 L700 234Z"/>
+        </g>
+        <g class="part" id="p-tieL" data-part="ties">
+          <circle class="st fillp" cx="246" cy="220" r="11"/>
+          <rect class="st fillp" x="150" y="215" width="86" height="10" rx="2"/>
+          <path class="st fillp" d="M150 210h-14v20h14z"/>
+          <circle class="st fillp" cx="118" cy="220" r="15"/><path class="st thin" d="M118 205v-22 M110 183h16"/>
+        </g>
+        <g class="part" id="p-tieR" data-part="ties">
+          <circle class="st fillp" cx="774" cy="220" r="11"/>
+          <rect class="st fillp" x="784" y="215" width="86" height="10" rx="2"/>
+          <path class="st fillp" d="M870 210h14v20h-14z"/>
+          <circle class="st fillp" cx="902" cy="220" r="15"/><path class="st thin" d="M902 205v-22 M894 183h16"/>
+        </g>
+        </g>
+        <g class="labels">
+          <g class="lbl" data-for="housing"><path d="M560 200V150"/><circle cx="560" cy="200" r="2.5"/><text x="560" y="140" text-anchor="middle">01</text></g>
+          <g class="lbl" data-for="shaft"><path d="M600 328V358"/><circle cx="600" cy="328" r="2.5"/><text x="600" y="378" text-anchor="middle">02</text></g>
+          <g class="lbl" data-for="valve"><path d="M380 44H344"/><circle cx="380" cy="44" r="2.5"/><text x="338" y="49" text-anchor="end">03</text></g>
+          <g class="lbl" data-for="bush"><path d="M696 287L716 300"/><circle cx="696" cy="287" r="2.5"/><text x="720" y="310">04</text></g>
+          <g class="lbl" data-for="seals"><path d="M309 275H284"/><circle cx="309" cy="275" r="2.5"/><text x="278" y="280" text-anchor="end">05</text></g>
+          <g class="lbl" data-for="boots"><path d="M792 194V166"/><circle cx="792" cy="194" r="2.5"/><text x="792" y="156" text-anchor="middle">06</text></g>
+          <g class="lbl" data-for="ties"><path d="M36 235V262"/><circle cx="36" cy="235" r="2.5"/><text x="36" y="282" text-anchor="middle">07</text></g>
+          <g class="lbl" data-for="mounts"><path d="M673 150H700"/><circle cx="673" cy="150" r="2.5"/><text x="706" y="155">08</text></g>
+        </g>
+      </svg>
+      <ul class="legend mono" id="legend">
+        <li data-for="housing"><b>01</b> Корпус</li><li data-for="shaft"><b>02</b> Шток із зубчастою частиною</li><li data-for="valve"><b>03</b> Розподільник і черв’ячний вал</li><li data-for="bush"><b>04</b> Опорні втулки</li><li data-for="seals"><b>05</b> Сальники</li><li data-for="boots"><b>06</b> Пильовики</li><li data-for="ties"><b>07</b> Кермові тяги</li><li data-for="mounts"><b>08</b> Кріплення</li>
+      </ul>
+    </div>
+    <div class="anatomy__steps">
+      <div class="steps__count mono"><span id="stepNo">01</span><span class="steps__of">/07</span></div>
+      <ol class="steps__list" id="stepsList">
+        <li data-part="all"><b>Повністю розбираємо агрегат</b><span>До кожної деталі: тяги, пильовики, сальники, шток.</span></li>
+        <li data-part="housing"><b>Піскоструїмо, чистимо, миємо й знежирюємо</b><span>Корпус і деталі — до чистого металу.</span></li>
+        <li data-part="shaft,valve"><b>Поліруємо, за потреби шліфуємо шток і черв’ячний вал</b><span>Відновлюємо робочу поверхню або міняємо вал.</span></li>
+        <li data-part="bush"><b>Виготовляємо нові опорні втулки</b><span>Власні токарі, свій верстатний парк.</span></li>
+        <li data-part="seals,boots"><b>Замінюємо підшипники, пильовики й інші компоненти</b><span>Комплектуючі вже на складі — без очікування.</span></li>
+        <li data-part="assembled"><b>Перевіряємо зібраний агрегат на стенді</b><span>Герметичність і прохідність розподільника.</span></li>
+        <li data-part="assembled"><b>Маркуємо агрегат і заносимо в журнал</b><span>Гарантія 1 рік або 30 000 км.</span></li>
+      </ol>
+    </div>
+    <ol class="msteps" id="msteps"></ol>
+    <figure class="anatomy__photo" id="stepPhoto">
+      <img src="img/s1.webp" alt="Розібрана кермова рейка в цеху Автодоктор" class="is-on">
+      <img src="img/s2.webp" alt="Піскоструминна камера в цеху">
+      <img src="img/s3.webp" alt="Токарна обробка деталі рейки">
+      <img src="img/s4.webp" alt="Майстер з деталлю рейки">
+      <img src="img/s5.webp" alt="Нові сальники та деталі для рейки">
+      <img src="img/s6.webp" alt="Рейка на перевірочному стенді">
+      <img src="img/s7.webp" alt="Майстер заносить дані в журнал">
+      <figcaption class="mono" id="stepCap">Фото: цех «Автодоктор», Житомирська, 46</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 04 REPAIR VS NEW -->
+<section class="sec sec--dark vs">
+  <div class="sec__no mono">04 / Ремонт чи нова рейка</div>
+  <div class="vs__grid">
+    <h2 class="h2" data-reveal>Відновлена рейка коштує в рази менше за нову.</h2>
+    <div class="vs__nums">
+      <div class="vs__row">
+        <span class="vs__lbl mono">Ремонт у нас</span>
+        <span class="vs__val"><span data-count="1500">1 500</span><small>грн</small></span>
+        <span class="vs__bar"><i style="--w:10.7%"></i></span>
+      </div>
+      <div class="vs__row vs__row--new">
+        <span class="vs__lbl mono">Нова рейка</span>
+        <span class="vs__val"><span data-count="14000">14 000</span><small>грн+</small></span>
+        <span class="vs__bar"><i style="--w:100%"></i></span>
+      </div>
+      <div class="vs__row vs__row--com">
+        <span class="vs__lbl mono">Нова, комерційний транспорт</span>
+        <span class="vs__val"><span data-count="40000">40 000</span><small>грн+</small></span>
+        <span class="vs__bar vs__bar--long"><i style="--w:100%"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="vs__facts">
+    <p><b class="mono">01</b> Якщо вашу рейку неможливо відновити — запропонуємо відновлену зі складу. Там понад 150 агрегатів.</p>
+    <p><b class="mono">02</b> Гарантія на ремонт — 1 рік або 30 000 км. Несемо й післягарантійні зобов’язання.</p>
+    <p><b class="mono">03</b> Зняття і встановлення рейки — від 1 400 грн, розвал-сходження після ремонту — на місці.</p>
+  </div>
+</section>
+
+<!-- 05 WORKS -->
+<section class="sec sec--black works" id="works">
+  <div class="works__head">
+    <div class="sec__no mono">05 / Роботи</div>
+    <h2 class="h2" data-reveal>Від Lacetti до Skyline R32 і Tesla Model S.</h2>
+    <div class="works__ctrl"><button class="ctrl" id="wPrev" aria-label="Назад">←</button><button class="ctrl" id="wNext" aria-label="Вперед">→</button></div>
+  </div>
+  <div class="works__track" id="worksTrack"></div>
+  <a class="arrow-link arrow-link--light" href="https://avtodoctor.com.ua/ua/portfolio/">Усі роботи в портфоліо</a>
+</section>
+
+<!-- 06 WORKSHOP & PEOPLE -->
+<section class="sec sec--paper shop-people">
+  <div class="sec__no mono">06 / Цех і люди</div>
+  <div class="sp__grid">
+    <figure class="sp__building"><div class="sp__imgwrap"><img data-parallax src="img/building.webp" alt="Будівля СТО Автодоктор на Житомирській, 46" loading="lazy"></div><figcaption class="mono">Житомирська, 46. Власна будівля з 2011 року</figcaption></figure>
+    <div class="sp__quote">
+      <blockquote data-reveal>«На Одещині не було майстерні з ремонту кермового управління — мене зацікавив цей напрямок, і ми почали навчатися цій тематиці.»</blockquote>
+      <div class="sp__author"><img src="img/founder.webp" alt="Олексій Лагода" loading="lazy"><div><b>Олексій Лагода</b><span class="mono">засновник «Автодоктор», працюємо з 2008 року</span></div></div>
+      <button class="play" id="playFilm"><span class="play__ic"></span><span>Фільм про цех · 57 с</span></button>
+    </div>
+  </div>
+  <div class="counts">
+    <div><span class="counts__n" data-count="11000">11 000</span><span class="counts__plus">+</span><p>кермових рейок відновила команда</p></div>
+    <div><span class="counts__n" data-count="2000">2 000</span><span class="counts__plus">+</span><p>насосів підсилювача керма</p></div>
+    <div><span class="counts__n" data-count="150">150</span><span class="counts__plus">+</span><p>відновлених агрегатів на складі</p></div>
+    <div><span class="counts__n" data-count="24">24</span><p>людини в колективі, без плинності кадрів</p></div>
+  </div>
+  <div class="team" id="team"></div>
+</section>
+
+<!-- 07 BRANDS -->
+<section class="sec sec--paper2 brands" id="brands">
+  <div class="sec__no mono">07 / Марки</div>
+  <h2 class="h2" data-reveal>Прайс за маркою — окрема сторінка для кожної.</h2>
+  <ul class="brands__list" id="brandsList"></ul>
+</section>
+
+<!-- 08 SHOP -->
+<section class="sec sec--dark store">
+  <div class="store__grid">
+    <div class="store__img"><img data-parallax src="img/racks.webp" alt="Відновлені кермові рейки на складі Автодоктор" loading="lazy"></div>
+    <div class="store__txt">
+      <div class="sec__no mono">08 / Магазин</div>
+      <h2 class="h2">Відновлені рейки та запчастини — зі складу.</h2>
+      <p>Якщо ремонт неможливий або вам потрібен агрегат на заміну — підберемо відновлену рейку, насос чи колонку під ваш автомобіль. Відправляємо Новою Поштою по всій Україні.</p>
+      <a class="btn btn--light" href="https://avtodoctor.com.ua/ua/shop/">Перейти в каталог</a>
+      <p class="store__partners mono">Для СТО-партнерів: ремонт за 1–2 дні та статус замовлень онлайн → <a href="https://avtodoctor.com.ua/ua/partners/">партнерам</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 REVIEWS -->
+<section class="sec sec--paper reviews">
+  <div class="sec__no mono">09 / Відгуки з Google</div>
+  <div class="rev__grid">
+    <div class="rev__score"><span class="rev__big">4,7</span><span class="mono">1 256 відгуків у Google Maps</span></div>
+    <div class="rev__list">
+      <figure data-reveal><blockquote>«Приехал на развал схождения по записи, сразу приняли, осмотрели, настроили за 25 минут. Также дали консультацию по некоторым моментам и указали на мелкие моменты ходовой и рулевой рейки.»</blockquote><figcaption class="mono">Dima Bosyi</figcaption></figure>
+      <figure data-reveal><blockquote>«Отличное сто, хороший коллектив, обслуживаюсь не первый раз, все вовремя и самое главное качественный ремонт!»</blockquote><figcaption class="mono">Сергей Александрович</figcaption></figure>
+      <figure data-reveal><blockquote>«Все чётко и вовремя. Делал текущую рейку и переднюю ходовую. Сервис на уровне. Рекомендую.»</blockquote><figcaption class="mono">Denis Marynich · Chevrolet Aveo</figcaption></figure>
+    </div>
+  </div>
+  <p class="foot-note mono">Відгуки мовою оригіналу.</p>
+</section>
+
+<!-- 10 CONTACT -->
+<section class="sec sec--paper2 contact" id="contact">
+  <div class="sec__no mono">10 / Запис і контакти</div>
+  <div class="ct__grid">
+    <div>
+      <h2 class="h2">Залиште номер, передзвонимо й назвемо ціну.</h2>
+      <form class="form" id="form" novalidate>
+        <label class="field"><span class="field__lbl mono">Телефон</span><input type="tel" inputmode="tel" placeholder="+38 0__ ___ __ __" id="phone" autocomplete="tel"></label>
+        <button class="btn btn--red" type="submit">Чекаю дзвінка</button>
+        <p class="form__ok mono" id="formOk" hidden>Демо: у робочій версії заявка піде в ту саму систему, що й зараз на сайті.</p>
+      </form>
+      <div class="ct__msg"><a href="viber://chat?number=380676501800">Viber</a><a href="https://t.me/stoavtodoctor">Telegram</a></div>
+    </div>
+    <dl class="ct__info">
+      <div><dt class="mono">Телефони</dt><dd><a href="tel:+380676501800">+38 (067) 650-18-00</a><a href="tel:+380503083486">+38 (050) 308-34-86</a><a href="tel:+380487080162">+38 (048) 708-01-62</a></dd></div>
+      <div><dt class="mono">Адреса</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=%D0%90%D0%B2%D1%82%D0%BE%D0%B4%D0%BE%D0%BA%D1%82%D0%BE%D1%80+%D0%9E%D0%B4%D0%B5%D1%81%D0%B0+%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0+46">Одеса, вул. Житомирська, 46 ↗</a></dd></div>
+      <div><dt class="mono">Графік</dt><dd>Пн–Пт: 08:00–17:00<br>Сб: 08:00–13:00<br>Нд: вихідний</dd></div>
+      <div><dt class="mono">Пошта</dt><dd><a href="mailto:avtodoctor0011@gmail.com">avtodoctor0011@gmail.com</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__cols">
+    <div><span class="mono">Послуги</span><a href="https://avtodoctor.com.ua/ua/remont-rulevyh-reek-s-elektrousilitelem/">Електричні рейки</a><a href="https://avtodoctor.com.ua/ua/remont-rulevyh-reek-s-gidrousilitelem/">Гідравлічні рейки</a><a href="https://avtodoctor.com.ua/ua/remont-mehanicheskih-reek/">Механічні рейки</a><a href="https://avtodoctor.com.ua/ua/gur-pump-repair/">Насоси ГПК</a><a href="https://avtodoctor.com.ua/ua/remont-rulevyh-kolonok-s-elektrousilitelem/">Кермові колонки</a></div>
+    <div><span class="mono">Компанія</span><a href="https://avtodoctor.com.ua/ua/about/">Про нас</a><a href="https://avtodoctor.com.ua/ua/portfolio/">Портфоліо</a><a href="https://avtodoctor.com.ua/ua/blog/">Блог</a><a href="https://avtodoctor.com.ua/ua/partners/">Партнерам</a><a href="https://avtodoctor.com.ua/ua/faq/">Питання-відповідь</a></div>
+    <div><span class="mono">Магазин</span><a href="https://avtodoctor.com.ua/ua/shop/">Каталог</a><a href="https://avtodoctor.com.ua/ua/payment-delivery/">Оплата і доставка</a><a href="https://avtodoctor.com.ua/ua/warranty/">Гарантія</a></div>
+  </div>
+  <div class="ftr__word" aria-hidden="true">АВТОДОКТОР</div>
+  <div class="ftr__legal mono"><span>© СТО «Автодоктор», Одеса</span><span>Демо-концепт нового вигляду сайту · NetWorX · жовтень 2026 · не індексується</span></div>
+</footer>
+
+<div class="film" id="film" hidden><button class="film__x" id="filmX" aria-label="Закрити">×</button><div class="film__box" id="filmBox"></div></div>
+
+<script src="data/brands.js"></script>
+<script src="data/work.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site.js?v=2"></script>
+</body>
+</html>
