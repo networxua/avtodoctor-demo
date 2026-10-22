@@ -144,7 +144,6 @@ $$('.h2[data-reveal]').forEach(h=>{ if(h.children.length) return; const words=h.
   gsap.from(h.querySelectorAll('.w>span'),{yPercent:105,duration:1,ease:'power4.out',stagger:.045,scrollTrigger:{trigger:h,start:'top 86%',once:true}}); });
 // reveals
 $$('[data-reveal]').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
-gsap.from('.proof__g',{opacity:0,y:30,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.proof',start:'top 80%',once:true}});
 gsap.utils.toArray('.spec>div,.sym__row,.brands__list li,.counts>div,.ct__info>div').forEach(el=>gsap.from(el,{opacity:0,y:18,duration:.8,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
 // image clip reveals
 $$('.sp__imgwrap,.store__img').forEach(el=>{el.classList.add('clipr'); gsap.to(el,{clipPath:'inset(0% 0% 0% 0%)',ease:'none',scrollTrigger:{trigger:el,start:'top 95%',end:'top 35%',scrub:.6}});});
