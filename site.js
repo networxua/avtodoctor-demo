@@ -211,3 +211,7 @@ mm.add('(max-width:900px)',()=>{
 });
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
+
+// 22.10: SEO text toggle + contact menu
+(()=>{const s=document.querySelector('.seo'),b=s&&s.querySelector('.seo__more');if(b)b.addEventListener('click',()=>{const o=s.classList.toggle('is-open');b.setAttribute('aria-expanded',o);b.textContent=o?'Згорнути ↑':'Читати далі ↓';});
+const fb=document.getElementById('cfabBtn'),fm=document.getElementById('cfabMenu');if(fb){fb.addEventListener('click',e=>{e.stopPropagation();const o=fm.hidden;fm.hidden=!o;fb.setAttribute('aria-expanded',o);});document.addEventListener('click',e=>{if(!e.target.closest('#cfab')){fm.hidden=true;fb.setAttribute('aria-expanded',false);}});fm.addEventListener('click',e=>{if(e.target.closest('a,button')){fm.hidden=true;fb.setAttribute('aria-expanded',false);}});}})();
