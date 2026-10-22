@@ -209,7 +209,7 @@ async function replySymptom(id,t){
 const carPrice=(b,m)=>m[1].length>1?`у прайсі ${m[1].map(fmt).join(' / ')} грн — залежить від модифікації й типу рейки`:`ремонт знятої рейки за прайсом від ${fmt(m[1][0])} грн`;
 async function replyCar(brand,model){
   const keep=S.brand===brand?S.model:null; S.brand=brand; S.model=model||keep; S.awaitCar=false; S.asked.add('car');
-  const link=`<a class="msg__a" href="${SITE}steering-racks-repair/${brand.s}/" target="_blank" rel="noopener">Прайс ${esc(brand.n)} на сайті ↗</a>`;
+  const link=`<a class="msg__a" href="${SITE}steering-racks-repair/${brand.s}/" target="_blank" rel="noopener">Прайс ${esc(brand.n)} на сайті →</a>`;
   if(model){ const k='mk:'+brand.n+' '+model[0]; CARS.forEach(c=>{ if(c===brand.n+' '+model[0]) S.asked.add('m:'+c); });
     if(S.asked.has(k)){ await say(`${AGAIN[S.rep++%AGAIN.length]}${esc(brand.n)} ${esc(model[0])} — ${carPrice(brand,model)}.`); return nx('book','time','warranty','diag'); }
     S.asked.add(k); S.asked.add('price');
@@ -225,7 +225,7 @@ const AGAIN=['Як і казав: ','Нагадаю коротко: ','Ще ра
 const SHORT={
   price:()=>S.model?`${esc(S.brand.n)} ${esc(S.model[0])} — ${carPrice(S.brand,S.model)}.`:'ремонт рейки — від 1 500 грн, гідравлічної — від 3 400 грн. Точніше скажу по марці й моделі.',
   time:()=>'один робочий день, запчастини вже на складі.', warranty:()=>'1 рік або 30 000 км.',
-  address:()=>`Одеса, вул. Житомирська, 46.<a class="msg__a" href="${MAP}" target="_blank" rel="noopener">Відкрити на карті ↗</a>`,
+  address:()=>`Одеса, вул. Житомирська, 46.<a class="msg__a" href="${MAP}" target="_blank" rel="noopener">Відкрити на карті →</a>`,
   hours:()=>`${HOURS}, неділя — вихідний.`, contacts:()=>`<a class="msg__tel" href="tel:${TEL}">${TEL_H}</a>`,
   diag:()=>'огляд майстра на авто, комп’ютерна діагностика — 250 грн.', services:()=>'рейки, насоси ГПК, колонки з ЕПК, зняття-встановлення, розвал-сходження.',
   process:()=>'повна розбірка, нові втулки з власних верстатів, нові сальники, перевірка на стенді.', store:()=>'нова — від 14 000 грн, відновлення виходить у рази дешевше.',
@@ -247,17 +247,17 @@ const KB={
   time:async()=>{ await say('Ремонт рейки — за один робочий день. Для СТО-партнерів — 1–2 дні. Комплектуючі вже на складі, тож чекати запчастини не доводиться.');
     if(offerBook()) await say('Можу записати на зручний день — майстер передзвонить і узгодить час.'); },
   warranty:async()=>{ await say('Гарантія на ремонт — 1 рік або 30 000 км. Несемо й післягарантійні зобов’язання. Кожен агрегат маркуємо й заносимо в журнал.'); },
-  address:async()=>{ await say(`Ми в Одесі, вул. Житомирська, 46 — власна будівля з 2011 року.<a class="msg__a" href="${MAP}" target="_blank" rel="noopener">Відкрити на карті ↗</a><span class="msg__s mono">${HOURS}, неділя — вихідний</span>`); },
+  address:async()=>{ await say(`Ми в Одесі, вул. Житомирська, 46 — власна будівля з 2011 року.<a class="msg__a" href="${MAP}" target="_blank" rel="noopener">Відкрити на карті →</a><span class="msg__s mono">${HOURS}, неділя — вихідний</span>`); },
   hours:async()=>{ await say(`Графік: ${HOURS}. Неділя — вихідний.`); },
   contacts:async()=>{ await say(`Телефони:<a class="msg__tel" href="tel:${TEL}">${TEL_H}</a><span class="msg__s"><a href="tel:+380503083486">050 308-34-86</a> · <a href="tel:+380487080162">048 708-01-62</a></span><span class="msg__s">Пишіть у <a href="viber://chat?number=380676501800">Viber</a> чи <a href="https://t.me/stoavtodoctor" target="_blank" rel="noopener">Telegram</a>, пошта avtodoctor0011@gmail.com</span>`); },
   diag:async()=>{ await say('Майстер оглядає кермове керування на авто, називає причину і точну вартість. Для авто з електропідсилювачем є комп’ютерна діагностика — 250 грн. А після ремонту кожну рейку перевіряємо на стенді: герметичність і прохідність розподільника.');
     if(offerBook()) await say('Записати вас на діагностику?'); },
   services:async()=>{ await say('Ремонтуємо кермові рейки — електричні, гідравлічні й механічні, насоси ГПК і кермові колонки з електропідсилювачем. На місці — зняття-встановлення і розвал-сходження. Є магазин відновлених агрегатів і запчастин з доставкою Новою Поштою.'); },
   process:async()=>{ await say('Розбираємо агрегат до кожної деталі, піскоструїмо й знежирюємо, поліруємо або шліфуємо шток і черв’ячний вал, виготовляємо нові опорні втулки на власних верстатах, міняємо сальники, пильовики й підшипники. Потім — перевірка на стенді і запис у журнал.'); },
-  store:async()=>{ await say('Нова рейка — від 14 000 грн (для комерційного транспорту — від 40 000 грн), тому відновлення виходить у рази дешевше. Якщо вашу рейку неможливо відновити, запропонуємо відновлену зі складу — там понад 150 агрегатів. Відправляємо Новою Поштою по всій Україні.'+`<a class="msg__a" href="${SITE}shop/" target="_blank" rel="noopener">Каталог магазину ↗</a>`); },
+  store:async()=>{ await say('Нова рейка — від 14 000 грн (для комерційного транспорту — від 40 000 грн), тому відновлення виходить у рази дешевше. Якщо вашу рейку неможливо відновити, запропонуємо відновлену зі складу — там понад 150 агрегатів. Відправляємо Новою Поштою по всій Україні.'+`<a class="msg__a" href="${SITE}shop/" target="_blank" rel="noopener">Каталог магазину →</a>`); },
   removal:async()=>{ await say('Зняття і встановлення рейки — від 1 400 грн. Розвал-сходження після ремонту робимо на місці.'); },
   human:async()=>{ await say(`Можу передати ваше питання майстру — він передзвонить. Або телефонуйте одразу:<a class="msg__tel" href="tel:${TEL}">${TEL_H}</a><span class="msg__s mono">${HOURS}</span>`); },
-  partners:async()=>{ await say(`Для СТО-партнерів: ремонт за 1–2 дні та статус замовлень онлайн.<a class="msg__a" href="${SITE}partners/" target="_blank" rel="noopener">Сторінка для партнерів ↗</a>`); },
+  partners:async()=>{ await say(`Для СТО-партнерів: ремонт за 1–2 дні та статус замовлень онлайн.<a class="msg__a" href="${SITE}partners/" target="_blank" rel="noopener">Сторінка для партнерів →</a>`); },
   brands:async()=>{ await say(`В онлайн-прайсі ${B.length} марки — від Acura до Volvo. У роботах є й Nissan Skyline R32, Tesla Model S, Porsche Cayenne. Напишіть свою марку й модель — підкажу ціну з прайсу.`); S.awaitCar=true; return chips(carChips().concat([['Інша марка','othercar']])); },
   hello:async()=>{ await say('Вітаю! Опишіть, що відбувається з кермом, або спитайте про ціни, терміни, гарантію чи адресу.'); return symChips(); },
   thanks:async()=>{ await say(S.rep%2?'Завжди радий допомогти!':'Будь ласка! Якщо ще щось — пишіть.'); S.rep++; },
