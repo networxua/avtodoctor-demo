@@ -486,16 +486,7 @@ a.rev__score:hover .rev__go{color:var(--red2)}
 .seo.is-open .seo__body{max-height:80em}
 .seo.is-open .seo__body:after{opacity:0}
 .seo__more{margin-top:16px;color:var(--red);border-bottom:1px solid currentColor;padding:4px 0;font-size:13px}
-/* contact FABs (22.10) */
-.cfab{position:fixed;left:clamp(14px,2.2vw,28px);bottom:clamp(14px,2.2vw,28px);z-index:68}
-.cfab__btn{display:flex;align-items:center;gap:10px;height:58px;padding:0 20px 0 16px;background:var(--paper);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.28);font-weight:500;font-size:15px}
-.cfab__dots{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,var(--ink) 2px,transparent 2.5px) 4px 50%/9px 9px repeat-x;border:1.5px solid var(--ink)}
-.cfab__menu{position:absolute;left:0;bottom:70px;min-width:220px;background:var(--paper);color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.3);display:flex;flex-direction:column;padding:6px}
-.cfab__menu[hidden]{display:none}
-.cfab__menu>*{display:flex;align-items:center;gap:12px;padding:12px 12px;font-size:16px;text-align:left;width:100%}
-.cfab__menu>*:hover{background:var(--paper2)}
-.cfab__i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font:600 11px/1 var(--f-m);color:#fff}
-.cfab__i--bot{background:var(--red)}.cfab__i--tg{background:#229ED9}.cfab__i--vb{background:#7360F2}.cfab__i--tel{background:var(--ink);font-size:14px}
+/* call button (22.10) */
 .binotel{position:fixed;right:clamp(14px,2.2vw,28px);bottom:calc(clamp(14px,2.2vw,28px) + 72px);z-index:68;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#16a34a;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.28);animation:bnPulse 2.4s infinite}
 @keyframes bnPulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.55),0 10px 30px rgba(0,0,0,.28)}70%{box-shadow:0 0 0 16px rgba(22,163,74,0),0 10px 30px rgba(0,0,0,.28)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0),0 10px 30px rgba(0,0,0,.28)}}
 .bot-tip{bottom:calc(clamp(14px,2.2vw,28px) + 142px)!important}
@@ -504,8 +495,6 @@ a.rev__score:hover .rev__go{color:var(--red2)}
   .map{grid-template-columns:1fr}
   .map__frame{height:300px}
   .map__card{border-left:0;border-top:1px solid var(--line-l);padding:32px var(--pad) 40px}
-  .cfab__lbl{display:none}
-  .cfab__btn{width:58px;justify-content:center;padding:0}
   .ftr{padding-bottom:100px}
 }
 
@@ -536,5 +525,5 @@ a.rev__score:hover .rev__go{color:var(--red2)}
   .spec__big{font-size:clamp(56px,17vw,76px)}
   .spec__arr{top:14px;right:14px}
 }
-.spec__star,.ext-arr,.seo__chev,.cfab__i svg{display:inline-block}
+.spec__star,.ext-arr,.seo__chev{display:inline-block}
 .ext-arr{vertical-align:middle;margin-left:4px;width:.55em;height:.55em}
