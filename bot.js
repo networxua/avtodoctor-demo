@@ -8,7 +8,6 @@
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TEL='+380676501800', TEL_H='067 650-18-00', HOURS='Пн–Пт 8:00–17:00, Сб 8:00–13:00';
 const MAP='https://www.google.com/maps/search/?api=1&query=%D0%90%D0%B2%D1%82%D0%BE%D0%B4%D0%BE%D0%BA%D1%82%D0%BE%D1%80+%D0%9E%D0%B4%D0%B5%D1%81%D0%B0+%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0+46';
-const SITE='https://avtodoctor.com.ua/ua/';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');
 
@@ -107,7 +106,7 @@ fab.innerHTML=`${ICON}<span class="bot-fab__t">Запитати бота</span><
 const tip=document.createElement('div'); tip.className='bot-tip'; tip.hidden=true;
 tip.innerHTML=`<button type="button" class="bot-tip__x" aria-label="Закрити підказку">×</button><b>Стукає чи тече?</b><span>Напишіть, що з кермом, — підкажу, що це може бути.</span>`;
 const panel=document.createElement('section');
-panel.className='bot'; panel.setAttribute('data-lenis-prevent',''); panel.setAttribute('role','dialog'); panel.setAttribute('aria-label','Бот-помічник Автодоктор'); panel.hidden=true;
+panel.className='bot'; panel.setAttribute('role','dialog'); panel.setAttribute('aria-label','Бот-помічник Автодоктор'); panel.hidden=true;
 panel.innerHTML=`
  <header class="bot__hdr">
    <span class="bot__ava" aria-hidden="true">${ICON}</span>
@@ -115,8 +114,8 @@ panel.innerHTML=`
    <button type="button" class="bot__restart mono" aria-label="Почати спочатку">↺</button>
    <button type="button" class="bot__x" aria-label="Закрити">×</button>
  </header>
- <div class="bot__log" data-lenis-prevent aria-live="polite"></div>
- <div class="bot__optw"><div class="bot__opts" data-lenis-prevent></div></div>
+ <div class="bot__log" aria-live="polite"></div>
+ <div class="bot__optw"><div class="bot__opts"></div></div>
  <form class="bot__in" autocomplete="off">
    <input type="text" class="bot__field" aria-label="Ваше повідомлення" placeholder="Напишіть питання або симптом…" enterkeyhint="send">
    <button type="submit" class="bot__send" aria-label="Надіслати">→</button>
@@ -209,7 +208,7 @@ async function replySymptom(id,t){
 const carPrice=(b,m)=>m[1].length>1?`у прайсі ${m[1].map(fmt).join(' / ')} грн — залежить від модифікації й типу рейки`:`ремонт знятої рейки за прайсом від ${fmt(m[1][0])} грн`;
 async function replyCar(brand,model){
   const keep=S.brand===brand?S.model:null; S.brand=brand; S.model=model||keep; S.awaitCar=false; S.asked.add('car');
-  const link=`<a class="msg__a" href="${SITE}steering-racks-repair/${brand.s}/" target="_blank" rel="noopener">Прайс ${esc(brand.n)} на сайті →</a>`;
+  const link="";
   if(model){ const k='mk:'+brand.n+' '+model[0]; CARS.forEach(c=>{ if(c===brand.n+' '+model[0]) S.asked.add('m:'+c); });
     if(S.asked.has(k)){ await say(`${AGAIN[S.rep++%AGAIN.length]}${esc(brand.n)} ${esc(model[0])} — ${carPrice(brand,model)}.`); return nx('book','time','warranty','diag'); }
     S.asked.add(k); S.asked.add('price');
@@ -254,10 +253,10 @@ const KB={
     if(offerBook()) await say('Записати вас на діагностику?'); },
   services:async()=>{ await say('Ремонтуємо кермові рейки — електричні, гідравлічні й механічні, насоси ГПК і кермові колонки з електропідсилювачем. На місці — зняття-встановлення і розвал-сходження. Є магазин відновлених агрегатів і запчастин з доставкою Новою Поштою.'); },
   process:async()=>{ await say('Розбираємо агрегат до кожної деталі, піскоструїмо й знежирюємо, поліруємо або шліфуємо шток і черв’ячний вал, виготовляємо нові опорні втулки на власних верстатах, міняємо сальники, пильовики й підшипники. Потім — перевірка на стенді і запис у журнал.'); },
-  store:async()=>{ await say('Нова рейка — від 14 000 грн (для комерційного транспорту — від 40 000 грн), тому відновлення виходить у рази дешевше. Якщо вашу рейку неможливо відновити, запропонуємо відновлену зі складу — там понад 150 агрегатів. Відправляємо Новою Поштою по всій Україні.'+`<a class="msg__a" href="${SITE}shop/" target="_blank" rel="noopener">Каталог магазину →</a>`); },
+  store:async()=>{ await say('Нова рейка — від 14 000 грн (для комерційного транспорту — від 40 000 грн), тому відновлення виходить у рази дешевше. Якщо вашу рейку неможливо відновити, запропонуємо відновлену зі складу — там понад 150 агрегатів. Відправляємо Новою Поштою по всій Україні.'); },
   removal:async()=>{ await say('Зняття і встановлення рейки — від 1 400 грн. Розвал-сходження після ремонту робимо на місці.'); },
   human:async()=>{ await say(`Зателефонуйте або напишіть у месенджер:<a class="msg__tel" href="tel:${TEL}">${TEL_H}</a><span class="msg__s"><a href="viber://chat?number=380676501800">Viber</a> · <a href="https://t.me/stoavtodoctor" target="_blank" rel="noopener">Telegram</a></span><span class="msg__s mono">${HOURS}</span>`); },
-  partners:async()=>{ await say(`Для СТО-партнерів: ремонт за 1–2 дні та статус замовлень онлайн.<a class="msg__a" href="${SITE}partners/" target="_blank" rel="noopener">Сторінка для партнерів →</a>`); },
+  partners:async()=>{ await say(`Для СТО-партнерів: ремонт за 1–2 дні та статус замовлень онлайн.`); },
   brands:async()=>{ await say(`В онлайн-прайсі ${B.length} марки — від Acura до Volvo. У роботах є й Nissan Skyline R32, Tesla Model S, Porsche Cayenne. Напишіть свою марку й модель — підкажу ціну з прайсу.`); S.awaitCar=true; return chips(carChips().concat([['Інша марка','othercar']])); },
   hello:async()=>{ await say('Вітаю! Опишіть, що відбувається з кермом, або спитайте про ціни, терміни, гарантію чи адресу.'); return symChips(); },
   thanks:async()=>{ await say(S.rep%2?'Завжди радий допомогти!':'Будь ласка! Якщо ще щось — пишіть.'); S.rep++; },
@@ -373,13 +372,12 @@ function open(ctx){
   tip.hidden=true; fab.querySelector('.bot-fab__badge').hidden=true; lastFocus=document.activeElement;
   panel.hidden=false; fab.setAttribute('aria-expanded','true'); document.documentElement.classList.add('bot-open'); fit();
   requestAnimationFrame(()=>panel.classList.add('is-on'));
-  if(mobile()&&window.__lenis) window.__lenis.stop();
   if(ctx&&ctx.book){ started=true; start(ctx); } else if(!started){ started=true; start(); }
   if(matchMedia('(hover:hover)').matches) field.focus({preventScroll:true}); else panel.querySelector('.bot__x').focus({preventScroll:true});
 }
 function close(){
   panel.classList.remove('is-on'); fab.setAttribute('aria-expanded','false'); document.documentElement.classList.remove('bot-open');
-  if(window.__lenis) window.__lenis.start(); field.blur();
+  field.blur();
   setTimeout(()=>{ if(!panel.classList.contains('is-on')) panel.hidden=true; },RM?0:320);
   if(lastFocus&&lastFocus.focus) lastFocus.focus({preventScroll:true});
 }

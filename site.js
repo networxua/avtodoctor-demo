@@ -14,7 +14,7 @@ function showPrice(v){ if(window.gsap&&!RM){const o={v:cur};gsap.to(o,{v,duratio
 sb.addEventListener('change',()=>{
   const b=B[sb.value];
   if(!b){sm.disabled=true;sm.innerHTML='<option>Спершу оберіть марку</option>';return;}
-  outL.href=`https://avtodoctor.com.ua/ua/steering-racks-repair/${b.s}/`; outL.textContent=`Прайс ${b.n} на сайті`;
+  outL.href='#brands'; outL.textContent=`Прайс ${b.n}`;
   if(!b.m.length){sm.disabled=true;sm.innerHTML='<option>Моделі уточнюйте за телефоном</option>';outN.textContent=`Для ${b.n} ціну назвемо по телефону після уточнення модифікації.`;return;}
   sm.disabled=false; sm.innerHTML='<option value="">Оберіть модель</option>'+b.m.map((m,i)=>`<option value="${i}">${m[0]}</option>`).join('');
   const min=Math.min(...b.m.flatMap(m=>m[1])); showPrice(min);
@@ -27,14 +27,14 @@ sm.addEventListener('change',()=>{
 });
 $('#priceMeta').textContent=`${B.length} марки · ${B.reduce((a,b)=>a+b.m.length,0)} моделей у прайсі сайту`;
 // brands list
-$('#brandsList').innerHTML=B.map(b=>`<li><a href="https://avtodoctor.com.ua/ua/steering-racks-repair/${b.s}/">${b.n}<span>${b.m.length?b.m.length+' мод.':'—'}</span></a></li>`).join('');
+$('#brandsList').innerHTML=B.map(b=>`<li><span>${b.n}<span>${b.m.length?b.m.length+' мод.':'—'}</span></span></li>`).join('');
 // works
 const pick=['remont-rulevoy-reyki-nissan-skyline-r32-0','remont-rulevoy-reyki-tesla-model-s','porsche-cayenne-2007','remont-rulevoy-reyki-mercedes-g350d-0','remont-rulevoy-reyki-chevrolet-camaro-2015g-3-6l-chevrolet-c','remont-rulevoy-reyki-audi-a8-2014','remont-rulevoy-reyki-mercedes-w220-0','remont-rulevoy-reyki-land-rover-discovery-2008-0','remont-rulevoy-reyki-s-elektrousilitelem-bmw-i3-logo-763','remont-rulevoy-reyki-mercedes-cla-2014g','remont-rulevoy-reyki-vw-passat-b7-0','remont-rulevoy-reyki-toyota-rav-4-2008-0'];
 const W=(window.WORK||[]); const ws=pick.map(p=>W.find(w=>w.img===p)).filter(Boolean);
-$('#worksTrack').innerHTML=ws.map((w,i)=>`<a class="work" href="${w.url}" draggable="false"><div class="work__img"><img src="img/work/${w.img}.webp" alt="${w.title}" loading="lazy" draggable="false"></div><div class="work__meta"><span class="mono">${String(i+1).padStart(2,'0')} · ${w.brand} · ${w.date}</span><span class="work__t">${w.title}</span></div></a>`).join('');
+$('#worksTrack').innerHTML=ws.map((w,i)=>`<article class="work"><div class="work__img"><img src="img/work/${w.img}.webp" alt="${w.title}" loading="lazy" width="800" height="429"></div><div class="work__meta"><span class="mono">${String(i+1).padStart(2,'0')} · ${w.brand} · ${w.date}</span><span class="work__t">${w.title}</span></div></article>`).join('');
 // team
 const T=[['britner-nadejda-avtodoctor','Надія','Відповідальна за порядок'],['Inna-finances','Інна','Відповідальна за фінанси'],['mykhailo-expeditor','Михайло','Експедитор'],['oleksandr-automechanic','Олександр','Автомеханік'],['oleksii-steering_rack_repair','Олексій','Ремонт кермових рейок'],['pavlo-steering_rack_repair','Павло','Ремонт кермових рейок'],['roman_collapse-climbing_master','Роман','Майстер розвал-сходження'],['kazimir-oleg-avtodoctor','Олег','Автомеханік'],['lesnikov-avtodoctor','Віталій','Корпоративні клієнти'],['melnikov-vitaliy-avtodoctor','Віталій','Автомеханік'],['ostrovoy-igor-avtodoctor','Ігор','Токар'],['peichev-yuriy-avtodoctor','Юрій','Майстер цеху агрегатів'],['pushkin-vladimir-avtodoctor','Володимир','Майстер цеху агрегатів'],['til-vitaliy-avtodoctor','Віталій','Токар'],['zaicev-dmitriy-avtodoctor','Дмитро','Менеджер з клієнтами']];
-$('#team').innerHTML=T.map(t=>`<figure class="tm"><img src="img/team/${t[0]}.webp" alt="${t[1]}, ${t[2]}" loading="lazy"><figcaption><b>${t[1]}</b><span>${t[2]}</span></figcaption></figure>`).join('')+`<figure class="tm tm--more"><a href="https://avtodoctor.com.ua/ua/about/"><b>24</b><span>людини в команді →</span></a></figure>`;
+$('#team').innerHTML=T.map(t=>`<figure class="tm"><img src="img/team/${t[0]}.webp" alt="${t[1]}, ${t[2]}" loading="lazy" width="400" height="500"><figcaption><b>${t[1]}</b><span>${t[2]}</span></figcaption></figure>`).join('')+`<figure class="tm tm--more"><b>24</b><span>людини в команді</span></figure>`;
 // mobile/static steps
 const stepsLi=$$('#stepsList li'), imgs=$$('#stepPhoto img');
 $('#msteps').innerHTML=stepsLi.map((li,i)=>`<li><span class="mono">${String(i+1).padStart(2,'0')}</span><b>${li.querySelector('b').textContent}</b><p>${li.querySelector('span').textContent}</p><img src="${imgs[i].getAttribute('src')}" alt="${imgs[i].alt}" loading="lazy"></li>`).join('');
@@ -91,13 +91,7 @@ if(!window.gsap||!window.ScrollTrigger){ html.classList.remove('js'); hdr.classL
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.create({trigger:'.hero',start:'bottom top+=70',onEnter:()=>hdr.classList.add('is-solid'),onLeaveBack:()=>hdr.classList.remove('is-solid')});
 
-let lenis=null;
-if(!RM && window.Lenis){
-  lenis=new Lenis({lerp:.11,smoothWheel:true});
-  lenis.on("scroll",ScrollTrigger.update); window.__lenis=lenis;
-  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
-}
-$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');const t=id.length>1&&$(id);if(!t)return;e.preventDefault();lenis?lenis.scrollTo(t,{offset:id==='#top'?0:-60,duration:1.4}):t.scrollIntoView();}));
+// Native scroll (Lenis removed: it made scrolling feel heavy and left position:fixed layers stuck).
 
 const explode={'#p-tieL':{x:-82},'#p-tieR':{x:82},'#p-bootL':{x:-60},'#p-bootR':{x:60},'#p-shaft':{y:100},'#p-valve':{y:-80},'#p-mounts':{y:-50},'#p-bush':{y:55},'#p-seals':{y:55}};
 const setExploded=()=>{Object.entries(explode).forEach(([k,v])=>gsap.set(k,v));gsap.set('.lbl',{opacity:1});};
@@ -161,14 +155,6 @@ $$('[data-count]').forEach(el=>{
 // vs bars
 $$('.vs__bar i').forEach(i=>gsap.fromTo(i,{'--s':0},{'--s':1,duration:1.4,ease:'power3.inOut',scrollTrigger:{trigger:i,start:'top 90%',once:true}}));
 
-// symptom image follower (desktop hover)
-if(matchMedia('(hover:hover) and (min-width:901px)').matches){
-  const fl=$('#symFloat'), fi=fl.querySelector('img');
-  const qx=gsap.quickTo(fl,'x',{duration:.5,ease:'power3'}), qy=gsap.quickTo(fl,'y',{duration:.5,ease:'power3'});
-  $('.sym').addEventListener('mousemove',e=>{qx(e.clientX+28);qy(e.clientY-120);});
-  $$('.sym__row').forEach(r=>{r.addEventListener('mouseenter',()=>{fi.src=r.dataset.img;gsap.to(fl,{opacity:1,clipPath:'inset(0 0 0% 0)',duration:.45,ease:'power3.out'});});});
-  $('.sym').addEventListener('mouseleave',()=>gsap.to(fl,{opacity:0,clipPath:'inset(0 0 100% 0)',duration:.35}));
-}
 
 // ANATOMY — main moment
 const mm=gsap.matchMedia();
